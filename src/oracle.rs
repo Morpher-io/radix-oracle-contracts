@@ -8,8 +8,11 @@ pub struct OraclePublicKeyUpdate {
     pub new_public_key: Bls12381G1PublicKey,
 }
 
+type Unit = ();
+
 #[blueprint]
 #[events(OraclePublicKeyUpdate)]
+#[types(u64, Unit)]
 mod morpher_oracle {
 
     enable_method_auth! {
@@ -24,7 +27,7 @@ mod morpher_oracle {
 
     pub struct MorpherOracle {
         authorized_pub_key: Bls12381G1PublicKey,
-        used_nonce: HashSet<u64>,
+        used_nonce: KeyValueStore<u64, ()>,
         // transient_resource_manager: ResourceManager, //coming in V2
     }
 
@@ -33,7 +36,6 @@ mod morpher_oracle {
             authorized_public_key: String,
             dapp_definition: ComponentAddress,
         ) -> (Global<MorpherOracle>, FungibleBucket) {
-
             // Creates the admin badge resource that can change the Oracles pub key.
             // This admin badge cannot be minted or burnt and all of its parameters are fixed.
             let admin_badge = ResourceBuilder::new_fungible(OwnerRole::None)
@@ -86,7 +88,7 @@ mod morpher_oracle {
             let component = Self {
                 authorized_pub_key: Bls12381G1PublicKey::from_str(authorized_public_key.as_str())
                     .expect("The given public key is not valid"),
-                used_nonce: HashSet::new(),
+                used_nonce: KeyValueStore::new_with_registered_type(),
             }
             .instantiate()
             .prepare_to_globalize(OwnerRole::None)
@@ -126,9 +128,10 @@ mod morpher_oracle {
 
             // Check that the nonce has not been used
             assert!(
-                self.used_nonce.insert(price_message.nonce),
+                self.used_nonce.get(&price_message.nonce).is_none(),
                 "This nonce has already been used"
             );
+            self.used_nonce.insert(price_message.nonce, ());
 
             price_message
         }
@@ -148,9 +151,10 @@ mod morpher_oracle {
                 let price_message = PriceMessage::from_str(msg).unwrap();
                 // Check that the nonce has not been used
                 assert!(
-                    self.used_nonce.insert(price_message.nonce),
+                    self.used_nonce.get(&price_message.nonce).is_none(),
                     "This nonce has already been used"
                 );
+                self.used_nonce.insert(price_message.nonce, ());
                 price_messages.push(price_message);
             }
 

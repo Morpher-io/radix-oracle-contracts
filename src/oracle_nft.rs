@@ -40,7 +40,7 @@ mod morpher_oracle_subscription {
     pub struct MorpherOracleSubscription {
         monthly_subscription_fee: Decimal,
         subscription_fees_vault: FungibleVault,
-        subscription_manager: ResourceManager
+        subscription_manager: ResourceManager,
     }
 
     impl MorpherOracleSubscription {
@@ -105,12 +105,12 @@ mod morpher_oracle_subscription {
                         "dapp_definition" => GlobalAddress::from(dapp_definition), updatable;
                     }))
                 .create_with_no_initial_supply();
-                
+
             // // Define a "transient" resource which can never be deposited once created, only burned
             // let transient_price_message_manager = ResourceBuilder::new_ruid_non_fungible::<PriceMessage>(OwnerRole::None)
             //     .metadata(metadata!(
             //         init {
-            //             "name" => 
+            //             "name" =>
             //             "A transient Price Message, must be returned at the end".to_owned(), locked;
             //         }
             //     ))
@@ -126,7 +126,7 @@ mod morpher_oracle_subscription {
             //         depositor => rule!(deny_all);
             //         depositor_updater => rule!(deny_all);
             //     ))
-                    
+
             //     .create_with_no_initial_supply();
 
             let component = Self {
@@ -157,7 +157,7 @@ mod morpher_oracle_subscription {
 
         /**
          * Enrolls a public key from a DAPP into the subscription
-         * 
+         *
          * Subscriptions are managed by the dapp owner and then the dapp operates with its own public key.
          */
         pub fn update_subscription_pub_key(
@@ -166,7 +166,10 @@ mod morpher_oracle_subscription {
             token_proof: NonFungibleProof,
         ) {
             let checked_proof = token_proof.check(self.subscription_manager.address());
-            info!("Local ID: {}", &checked_proof.as_non_fungible().non_fungible_local_id());
+            info!(
+                "Local ID: {}",
+                &checked_proof.as_non_fungible().non_fungible_local_id()
+            );
             self.subscription_manager.update_non_fungible_data(
                 &checked_proof.as_non_fungible().non_fungible_local_id(),
                 "authorized_pub_key",
@@ -177,10 +180,7 @@ mod morpher_oracle_subscription {
         /**
          * Sets the subscription price
          */
-        pub fn set_subscription_price(
-            &mut self,
-            new_price: Decimal
-        ) {
+        pub fn set_subscription_price(&mut self, new_price: Decimal) {
             self.monthly_subscription_fee = new_price;
         }
 
@@ -247,8 +247,8 @@ mod morpher_oracle_subscription {
 
             let remaining_tokens = self.check_payment(months, payment);
 
-            let new_subscription_end = max(get_time(), subscription_data.expiration_time)
-                + SECONDS_IN_A_MONTH * (months);
+            let new_subscription_end =
+                max(get_time(), subscription_data.expiration_time) + SECONDS_IN_A_MONTH * (months);
 
             self.subscription_manager.update_non_fungible_data(
                 &subscription_id,
