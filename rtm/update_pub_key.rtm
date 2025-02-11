@@ -4,24 +4,24 @@ CALL_METHOD
     Decimal("5000")
 ;
 CALL_METHOD
-    Address("account_sim1c956qr3kxlgypxwst89j9yf24tjc7zxd4up38x37zr6q4jxdx9rhma")
+    Address("account_tdx_2_12xzvypzd8ajpw5v9x9l0zh85xxlah0qf0j0xu0guflclywqf2njhj8")
     "create_proof_of_non_fungibles"
-    Address("resource_sim1ng4kl9qul5nsd49u99x25fs8gclv2yd28a9g242l2x0zx4hhgpj0dn")
+    Address("resource_tdx_2_1nf953rsnvrvm9h5pfr052eq6qwnuwtczcykaq372wlphut9kjw22m6")
     Array<NonFungibleLocalId>(
-        NonFungibleLocalId("{ebf66729b1a12bf8-dd3dfcfda7021600-7dcb9a2540fe42c1-b1a094a879852b19}")
+        NonFungibleLocalId("{af9c0461bf1dba59-fd75fc0df79e8d1c-71c4ebde215a854c-8d3df50c5381b5bd}")
     )
 ;
 POP_FROM_AUTH_ZONE
     Proof("Sub Proof")
 ;
 CALL_METHOD
-    Address("component_sim1crtkvhxwuff6vk7weufhj9qsd8u7ekajz9zllmqd29mlm8mlxrvsru")
+    Address("component_tdx_2_1czvtdxpeqzlvsc9dsst0wxfdm0a57k5crkrfzu08yt5tf2en9t343t")
     "update_subscription_pub_key"
-    "abcdef"
+    "8f228e658879366397d48e520b1544c8b94f60686a0dc796a4a7da2d488008895de799114ae90c72030e828922db08c9"
     Proof("Sub Proof")
 ;
 CALL_METHOD
-    Address("account_sim1c956qr3kxlgypxwst89j9yf24tjc7zxd4up38x37zr6q4jxdx9rhma")
+    Address("account_tdx_2_12xzvypzd8ajpw5v9x9l0zh85xxlah0qf0j0xu0guflclywqf2njhj8")
     "deposit_batch"
     Expression("ENTIRE_WORKTOP")
 ;
