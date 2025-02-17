@@ -31,7 +31,7 @@ impl FromStr for PriceMessage {
 
         if parts.len() != 8 {
             Err("Failed to parse input message, malformed string supplied".to_string())
-        } else if parts.first().unwrap().parse() != "v2" {
+        } else if *parts.first().unwrap() != "v2" {
             Err("Invalid message version".to_string())
         } else {
             let market_id = parts
@@ -120,9 +120,9 @@ mod price_message_tests {
                 && price_message.market_status == "open"
         );
 
-        assert!(PriceMessage::from_str("TEST-1000.234-1-1230-1235-1100-open").is_err())
-        assert!(PriceMessage::from_str("v1-TEST-1000.234-1-1230-1235-1100-open").is_err())
-        assert!(PriceMessage::from_str("v2-TEST-1000.234-1-1230-1235-1100").is_err())
-        assert!(PriceMessage::from_str("v2-TEST-1000.234-1-1230-1235-1100-open-123").is_err())
+        assert!(PriceMessage::from_str("TEST-1000.234-1-1230-1235-1100-open").is_err());
+        assert!(PriceMessage::from_str("v1-TEST-1000.234-1-1230-1235-1100-open").is_err());
+        assert!(PriceMessage::from_str("v2-TEST-1000.234-1-1230-1235-1100").is_err());
+        assert!(PriceMessage::from_str("v2-TEST-1000.234-1-1230-1235-1100-open-123").is_err());
     }
 }

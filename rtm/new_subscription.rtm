@@ -15,7 +15,7 @@ TAKE_FROM_WORKTOP
     Bucket("bucket")
 ;
 CALL_METHOD
-    Address("component_tdx_2_1czvtdxpeqzlvsc9dsst0wxfdm0a57k5crkrfzu08yt5tf2en9t343t")
+    Address("component_tdx_2_1cq6x44gsas2zy6c0nkqrrt7wehwna8vgzwmmqv0d8qhcdwjr54x4ca")
     "new_subscription"
     1u64
     Bucket("bucket")

@@ -3,7 +3,7 @@ CALL_FUNCTION
     "GumballMachine"
     "instantiate_gumball_machine"
     120u64
-    Address("component_tdx_2_1cr64c4dyfju3ch6dv38aw6x5ghuqllrmc6wwqk7yd9jr3hwu2e0wdr")
+    Address("component_tdx_2_1cpfduqkw0rj0rl0wq8xshwn56nvnhr8ue2wgz364nkf0zkum9yxg25")
     Address("account_tdx_2_12xmevme9ujzqe3yuyq37ampaa2dw633luw8446gumfycltqe5qty66")
 ;
 CALL_METHOD

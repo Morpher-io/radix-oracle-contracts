@@ -4,14 +4,14 @@ CALL_METHOD
     Decimal("5000")
 ;
 CALL_FUNCTION
-    Address("package_tdx_2_1pkskd9vwxgps8ygp2hsppfpmv4lvccy4m83n3akfpfxzzs3aclhjte")
+    Address("package_tdx_2_1p4dyfyg0peg2j07ay6lqgapz57kx0h4wkyxd7gzjzvl65ynz840d52")
     "MorpherOracle"
     "instantiate"
     "a7e75af9dd4d868a41ad2f5a5b021d653e31084261724fb40ae2f1b1c31c778d3b9464502d599cf6720723ec5c68b59d"
     Address("account_tdx_2_12xmevme9ujzqe3yuyq37ampaa2dw633luw8446gumfycltqe5qty66")
 ;
 CALL_FUNCTION
-    Address("package_tdx_2_1pkskd9vwxgps8ygp2hsppfpmv4lvccy4m83n3akfpfxzzs3aclhjte")
+    Address("package_tdx_2_1p4dyfyg0peg2j07ay6lqgapz57kx0h4wkyxd7gzjzvl65ynz840d52")
     "MorpherOracleSubscription"
     "instantiate"
     Decimal("1000")

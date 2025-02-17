@@ -29,7 +29,7 @@ impl FromStr for OracleRequestMessage {
         let err_string = "Failed to parse input message".to_string();
         let parts: Vec<&str> = s.split("##").collect();
 
-        if parts.len() != 5 {
+        if parts.len() != 4 {
             Err(err_string)
         } else {
             let market_id = parts
@@ -86,7 +86,7 @@ mod price_message_tests {
 
     #[test]
     pub fn from_string_test() {
-        let oracle_request_message = OracleRequestMessage::from_str("TEST:MARKET##1##abcTEST#defTEST").unwrap();
+        let oracle_request_message = OracleRequestMessage::from_str("TEST:MARKET##1##abcTEST##defTEST").unwrap();
         assert!(
             oracle_request_message.market_id == "TEST:MARKET"
                 && oracle_request_message.nonce == 1

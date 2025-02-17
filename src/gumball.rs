@@ -152,9 +152,16 @@ mod gumball_machine {
                 message, signature,
             );
 
-            // Check that the price lifetime has not been surpassed
+            // Checks that the oracle has signed the price no more than price_lifetime seconds ago (i.e. 120)
             assert!(
-                price_message.created_at + self.price_lifetime >= get_time(),
+                price_message.oracle_timestamp + self.price_lifetime >= get_time(),
+                "This price is out of date!"
+            );
+
+            // Checks that the data timestamp is not outdated in respect to the market status
+            // i.e. if the market closed at 17:00 the data timestamp has to be at least 16:59
+            assert!(
+                price_message.data_timestamp + 60 >= price_message.market_status_timestamp,
                 "This price is out of date!"
             );
 

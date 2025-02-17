@@ -6,16 +6,16 @@ CALL_METHOD
 CALL_METHOD
     Address("account_tdx_2_12xzvypzd8ajpw5v9x9l0zh85xxlah0qf0j0xu0guflclywqf2njhj8")
     "create_proof_of_non_fungibles"
-    Address("resource_tdx_2_1nf953rsnvrvm9h5pfr052eq6qwnuwtczcykaq372wlphut9kjw22m6")
+    Address("resource_tdx_2_1nf4zggj3haukhelds7hguqzz2x50rhluspptmdr9c0c3ew4eyrlrku")
     Array<NonFungibleLocalId>(
-        NonFungibleLocalId("{af9c0461bf1dba59-fd75fc0df79e8d1c-71c4ebde215a854c-8d3df50c5381b5bd}")
+        NonFungibleLocalId("{996725785a8e8f49-a0a1fc15e1d79ea9-07300fb1fbf4bd62-39504d43e8645b63}")
     )
 ;
 POP_FROM_AUTH_ZONE
     Proof("Sub Proof")
 ;
 CALL_METHOD
-    Address("component_tdx_2_1czvtdxpeqzlvsc9dsst0wxfdm0a57k5crkrfzu08yt5tf2en9t343t")
+    Address("component_tdx_2_1cq6x44gsas2zy6c0nkqrrt7wehwna8vgzwmmqv0d8qhcdwjr54x4ca")
     "update_subscription_pub_key"
     "8f228e658879366397d48e520b1544c8b94f60686a0dc796a4a7da2d488008895de799114ae90c72030e828922db08c9"
     Proof("Sub Proof")
