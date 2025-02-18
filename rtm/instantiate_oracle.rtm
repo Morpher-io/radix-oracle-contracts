@@ -4,7 +4,7 @@ CALL_METHOD
     Decimal("5000")
 ;
 CALL_FUNCTION
-    Address("package_tdx_2_1p4dyfyg0peg2j07ay6lqgapz57kx0h4wkyxd7gzjzvl65ynz840d52")
+    Address("package_tdx_2_1p4uuvwy6al292xk7wuhxj08kdxqr576e4rdqsnn7ddlhpru0nll8a9")
     "MorpherOracle"
     "instantiate"
     "a7e75af9dd4d868a41ad2f5a5b021d653e31084261724fb40ae2f1b1c31c778d3b9464502d599cf6720723ec5c68b59d"

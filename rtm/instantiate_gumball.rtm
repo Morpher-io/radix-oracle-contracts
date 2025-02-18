@@ -1,9 +1,9 @@
 CALL_FUNCTION
-    Address("package_tdx_2_1pkskd9vwxgps8ygp2hsppfpmv4lvccy4m83n3akfpfxzzs3aclhjte")
+    Address("package_tdx_2_1p4uuvwy6al292xk7wuhxj08kdxqr576e4rdqsnn7ddlhpru0nll8a9")
     "GumballMachine"
     "instantiate_gumball_machine"
     120u64
-    Address("component_tdx_2_1cpfduqkw0rj0rl0wq8xshwn56nvnhr8ue2wgz364nkf0zkum9yxg25")
+    Address("component_tdx_2_1cqvrlxzkchllexajfjehr9jglr0j50c7sj5nnyth4ryg0c0tajmzu7")
     Address("account_tdx_2_12xmevme9ujzqe3yuyq37ampaa2dw633luw8446gumfycltqe5qty66")
 ;
 CALL_METHOD
